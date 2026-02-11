@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CarPool Party</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="Images/icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <h1>CarPool Party</h1>
+        <p class="subtitle">
+  
+            Find people with similar routes and schedules to carpool together!
+        </p>
+
+        <form id="rideForm" class="card">
+            <!-- page 1 -->
+            <div class="form-page" id="page1">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" required />
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="e.g. you@email.com" required />
+                </div>
+                <button type="button" id="next1">Next</button>
+            </div>
+            <!-- page 2 -->
+            <div class="form-page noDisplay" id="page2">
+                <div class="field-group">
+                    <label>Starting Address</label>
+                    <div class="field-row">
+                        <input id="originAddress" type="text" placeholder="Address Line" required class="flex2" />
+                    </div>
+                    <div class="field-row">
+                        <input id="originCity" type="text" placeholder="City" required />
+                        <input id="originState" type="text" placeholder="State" required />
+                        <input id="originZip" type="text" placeholder="Zip Code" required />
+                    </div>
+                </div>
+                <div class="spacer spacer-sm"></div>
+                <div class="field-group">
+                    <label>Destination Address</label>
+                    <div class="field-row">
+                        <input id="destAddress" type="text" placeholder="Address Line" required class="flex2" />
+                    </div>
+                    <div class="field-row">
+                        <input id="destCity" type="text" placeholder="City" required />
+                        <input id="destState" type="text" placeholder="State" required />
+                        <input id="destZip" type="text" placeholder="Zip Code" required />
+                    </div>
+                </div>
+                <div class="spacer spacer-md"></div>
+                <button type="button" id="back2" class="mr-lg">Back</button>
+                <button type="button" id="next2">Next</button>
+            </div>
+            <!-- page 3 -->
+            <div class="form-page noDisplay" id="page3">
+                <div class="row">
+                    <div class="field">
+                        <label for="day">Day</label>
+                        <select id="day">
+                            <option>Sunday</option>
+                            <option>Monday</option>
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                            <option>Saturday</option>
+                                                        
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="time">Hour</label>
+                        <div class="timeButton">
+                            <input id="time" type="number" min="1" max="12" required />
+                            <select id="ampm">
+                                <option>AM</option>
+                                <option>PM</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="back3">Back</button>
+                <button type="submit">Find Matches</button>
+            </div>
+        </form>
+
+        <p id="output"></p>
+        <p id="loading" class="loading">Finding matches...</p>
+
+    </div>
+    
+    <script type="module" src="main.js"></script>
+</body>
+</html>

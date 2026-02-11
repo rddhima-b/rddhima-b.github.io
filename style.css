@@ -1,0 +1,195 @@
+:root {
+  --cream: #FAF3DD;
+  --light-green: #C8D5B9;
+  --mint: #8FC0A9;
+  --teal: #68B0AB;
+  --forest: #4A7C59;
+  --bg: var(--cream);
+  --card-bg: #fff;
+  --input-bg: var(--light-green);
+  --input-border: var(--teal);
+  --shadow: 0 2px 12px #0002;
+  --radius: 10px;
+  --text-main: #222;
+  --text-label: #4A7C59;
+  --text-muted: #4A7C59;
+  --accent: var(--teal);
+}
+
+.chocolate-classical-sans-regular {
+  font-family: "Chocolate Classical Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Chocolate Classical Sans','Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+  margin: 0;
+  min-height: 100vh;
+}
+.app-container {
+  max-width: 480px;
+  margin: 2.5rem auto;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+
+.timeButton {
+  display: flex;
+  gap: 0.6rem;           /* space between the input and select */
+  align-items: center;   /* vertically center them */
+}
+
+/* Make the hour input take the remaining space */
+.timeButton input#time {
+  flex: 1 1 auto;        /* expand to fill available width */
+  width: auto;           /* override the global 100% if present */
+  max-width: 8rem;       /* optional: limit how wide the number input grows */
+}
+
+/* Give a compact width to the AM/PM selector */
+.timeButton select#ampm {
+  flex: 0 0 5.2rem;      /* fixed-ish width for the selector */
+  width: 5.2rem;         /* make it consistent across browsers */
+  padding: 0.55rem 0.5rem; /* slightly smaller vertical padding to match input height */
+}
+
+h1 {
+  color: var(--forest);
+  font-size: 2.2rem;
+  margin-bottom: 0.2em;
+  font-weight: 700;
+}
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2.2em;
+}
+.back {
+  margin-top: 1.5em;
+}
+.details {
+  margin-bottom: 3em;
+}
+form.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 1.5em;
+}
+.field, .field-group {
+  margin-bottom: 1.5em;
+  margin-right: 2em;
+}
+label {
+  color: var(--text-label);
+  font-weight: 600;
+  margin-bottom: 0.4em;
+  display: block;
+  font-size: 1.05em;
+}
+input, select {
+  width: 100%;
+  padding: 0.7em 1em;
+  border-radius: 6px;
+  border: 1.5px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--forest);
+  font-size: 1em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  transition: border 0.2s;
+}
+input:focus, select:focus {
+  outline: none;
+  border: 1.5px solid var(--forest);
+  background: #eaf1fb;
+}
+.field-row {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+button {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7em 1.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.2em;
+  box-shadow: 0 1px 4px #0001;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+button[type="button"] {
+  background: var(--forest);
+  color: #fff;
+}
+button:hover, button:focus {
+  background: var(--mint);
+  box-shadow: 0 2px 8px #0002;
+}
+button[type="button"]:hover, button[type="button"]:focus {
+  background: var(--light-green);
+  color: var(--forest);
+}
+.form-page button {
+  margin-top: 1.5em;
+}
+.loading {
+  display: none;
+  font-weight: bold;
+  color: var(--forest);
+  margin-top: 1.5em;
+}
+#output {
+  margin-top: 1.5em;
+  font-weight: 500;
+  color: var(--forest);
+}
+.card.output {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5em;
+  margin-top: 1.5em;
+}
+/* Match details page */
+#matchDetails > div {
+  background: var(--input-bg);
+  border-radius: var(--radius);
+  padding: 1.5em;
+  margin-bottom: 1em;
+  box-shadow: var(--shadow);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--forest);
+}
+.noDisplay{
+  display:none;
+}
+a {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .app-container {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  form.card {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+}
+

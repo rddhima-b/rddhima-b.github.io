@@ -1,0 +1,20 @@
+{
+  "name": "CarPool-Party",
+  "short_name": "CPP",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0078d7",
+  "icons": [
+    {
+      "src": "Images/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Images/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
