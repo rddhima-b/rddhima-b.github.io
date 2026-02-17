@@ -197,20 +197,68 @@ document.addEventListener('DOMContentLoaded', () => {
             showPage(2);
         };
         if (back2) back2.onclick = function () { showPage(1); };
-        if (next2) next2.onclick = function () {
-            // validate all address fields
+
+        if (back3) back3.onclick = function () { showPage(2); };
+    }, 0);
+    // Address validation for page 2
+    const next2Btn = document.getElementById('next2');
+    const back2Btn = document.getElementById('back2');
+    const output = document.getElementById('output');
+    if (next2Btn) {
+        next2Btn.addEventListener('click', async () => {
+            output.textContent = '';
+            // First check if all fields are non-empty
             const fields = [
                 'originAddress', 'originCity', 'originState', 'originZip',
                 'destAddress', 'destCity', 'destState', 'destZip'
             ];
             for (const id of fields) {
                 const el = document.getElementById(id);
-                if (!el.value.trim()) { el.focus(); return; }
+                if (!el.value.trim()) {
+                    el.focus();
+                    return;
+                }
             }
-            showPage(3);
-        };
-        if (back3) back3.onclick = function () { showPage(2); };
-    }, 0);
+            // Compose full addresses
+            const origin = [
+                document.getElementById('originAddress').value,
+                document.getElementById('originCity').value,
+                document.getElementById('originState').value,
+                document.getElementById('originZip').value
+            ].map(s => s.trim()).filter(Boolean).join(', ');
+            const dest = [
+                document.getElementById('destAddress').value,
+                document.getElementById('destCity').value,
+                document.getElementById('destState').value,
+                document.getElementById('destZip').value
+            ].map(s => s.trim()).filter(Boolean).join(', ');
+            let valid = true;
+            next2Btn.disabled = true;
+            try {
+                await getLatLon(origin);
+            } catch (e) {
+                output.textContent = 'Invalid address. Please enter a real address.';
+                valid = false;
+            }
+            if (valid) {
+                try {
+                    await getLatLon(dest);
+                } catch (e) {
+                    output.textContent = 'Invalid destination address. Please enter a real address.';
+                    valid = false;
+                }
+            }
+            next2Btn.disabled = false;
+            if (valid) {
+                showPage(3);
+            }
+        });
+    }
+    if (back2Btn) {
+        back2Btn.addEventListener('click', () => {
+            showPage(1);
+        });
+    }
 });
 // form handling - attach after DOM is ready to avoid null selector errors (DOM - document object model)
 document.addEventListener('DOMContentLoaded', () => {
