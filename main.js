@@ -253,6 +253,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 showPage(3);
             }
         });
+        // Recheck validity when user edits any address field
+        const addressFields = [
+            'originAddress', 'originCity', 'originState', 'originZip',
+            'destAddress', 'destCity', 'destState', 'destZip'
+        ];
+        addressFields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', () => {
+                    output.textContent = '';
+                });
+            }
+        });
     }
     if (back2Btn) {
         back2Btn.addEventListener('click', () => {
